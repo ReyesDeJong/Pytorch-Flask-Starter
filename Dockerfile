@@ -1,17 +1,13 @@
-FROM python:3
+FROM python:3.10-slim
 
-MAINTAINER Imad Toubal
+# Upgrade pip
+RUN pip install --no-cache-dir --upgrade pip
 
 WORKDIR /app
 
-COPY './requirements.txt' .
-
-# RUN apt-get install libgtk2.0-dev pkg-config -yqq 
-
-RUN pip install --upgrade pip
-
+COPY requirements.txt ./
 RUN pip install -r requirements.txt
 
-COPY . .
+COPY /src ./src
 
-CMD ["python", "app.py"]
+CMD ["gunicorn", "--bind", "0.0.0.0:8000", "--timeout", "60", "src.app:app"]
