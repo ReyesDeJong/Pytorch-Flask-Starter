@@ -1,4 +1,4 @@
-# Flask/Pytorch/Docker starter app
+# Flask/Pytorch/Docker starter app something
 
 This project is aimed to help machine learning developers to quickly build and deploy a Flask web app that take advantage of their machine learning  ready PyTorch model. The documentation explains how to get up and running with either virtualenv or Docker.
 
